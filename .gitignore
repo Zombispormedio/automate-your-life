@@ -65,3 +65,5 @@ typings/
 
 # Serverless directories
 .serverless
+
+packages/automate-master/data

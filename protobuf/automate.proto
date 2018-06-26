@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package automate;
+
+service TorrentDownload {
+  rpc attach(stream TorrentDownloadRequest) returns (TorrentDownloadResponse) {}
+}
+
+// The response message containing the greetings
+message TorrentDownloadRequest {
+  bytes torrentFile = 1;
+}
+
+message TorrentDownloadResponse {
+  bool ack = 1;
+}
