@@ -1,9 +1,15 @@
 {
 	"private": true,
+	"scripts": {
+		"update-protobuf": "node scripts/copy-protobuf",
+		"postinstall": "concurrently \"npm:update-protobuf\""
+	},
 	"workspaces": [
 		"packages/*"
 	],
 	"dependencies": {
+		"concurrently": "^3.6.0",
+		"fs-extra": "^6.0.1",
 		"lerna": "^2.11.0",
 		"pm2": "^2.10.4"
 	},

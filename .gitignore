@@ -66,4 +66,5 @@ typings/
 # Serverless directories
 .serverless
 
-packages/automate-master/data
+packages/automate-master/data/*.torrent
+packages/**/protobuf/automate.proto
