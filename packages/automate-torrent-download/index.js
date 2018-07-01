@@ -1,17 +1,8 @@
-const http = require('http')
-const port = process.env.PORT
+const { serviceName } = require('./config')
+const server = require('./start')()
 
-const requestHandler = (request, response) => {
-  console.log(request.url)
-  response.end('Hello Node.js Server!')
-}
+server.start().then(() => console.log(`${serviceName} service connected`))
 
-const server = http.createServer(requestHandler)
-
-server.listen(port, (err) => {
-  if (err) {
-    return console.log('something bad happened', err)
-  }
-
-  console.log(`server is listening on ${port}`)
+process.on('SIGINT', () => {
+  server.stop()
 })

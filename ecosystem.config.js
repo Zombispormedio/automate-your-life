@@ -1,10 +1,10 @@
 module.exports = {
   apps: [
     {
-      name: 'app',
+      name: 'automate-torrent-download',
       script: './packages/automate-torrent-download/index.js',
       env: {
-        PORT: 3000
+        PORT: 3040
       }
     }
   ]

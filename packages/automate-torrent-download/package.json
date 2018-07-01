@@ -5,6 +5,7 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
+    "@grpc/proto-loader": "^0.1.0",
     "consul": "^0.33.1",
     "convict": "^4.3.0",
     "grpc": "^1.13.0-pre1",

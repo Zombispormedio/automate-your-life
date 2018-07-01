@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package automate;
 
-service TorrentDownload {
+service Torrent {
   rpc attach(stream TorrentDownloadRequest) returns (TorrentDownloadResponse) {}
 }
 
