@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "consul": "^0.33.1",
-    "grpc": "^1.13.0"
+    "grpc": "^1.13.0",
+    "wait-on": "^2.1.0"
   }
 }

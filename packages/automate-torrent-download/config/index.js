@@ -38,6 +38,11 @@ const config = convict({
       default: 8500,
       env: 'CONSUL_PORT'
     }
+  },
+  intents: {
+    master: {
+      url: 'http://example.com'
+    }
   }
 })
 

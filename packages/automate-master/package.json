@@ -11,6 +11,9 @@
   "dependencies": {
     "@grpc/proto-loader": "^0.1.0",
     "automate-shared": "file:../automate-shared",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "multer": "^1.3.1",
     "ramda": "^0.25.0",
     "uuid": "^3.3.2"
   }
