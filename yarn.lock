@@ -1231,6 +1231,10 @@ dot-prop@^3.0.0:
   dependencies:
     is-obj "^1.0.0"
 
+dotenv@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-6.0.0.tgz#24e37c041741c5f4b25324958ebbc34bca965935"
+
 drivelist@^6.2.2:
   version "6.2.2"
   resolved "https://registry.yarnpkg.com/drivelist/-/drivelist-6.2.2.tgz#12682b84fde5cdeb5b68a0554771ef2b02bd3703"

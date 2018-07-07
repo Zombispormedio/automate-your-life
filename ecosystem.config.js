@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 module.exports = {
   apps: [
     {
@@ -10,6 +12,16 @@ module.exports = {
       env_production: {
         watch: false,
         PORT: 3040
+      }
+    },
+    {
+      name: 'automate-service-discovery',
+      script: './packages/automate-service-discovery/index.js',
+      env: {
+        NODE_ENV: 'development'
+      },
+      env_production: {
+        NODE_ENV: 'production'
       }
     }
   ]
