@@ -26,6 +26,18 @@ const config = convict({
     doc: 'Protobuffer main service',
     default: 'Torrent',
     env: 'SERVICE_NAME'
+  },
+  consul: {
+    host: {
+      doc: 'Consul host',
+      default: '127.0.0.1',
+      env: 'CONSUL_HOST'
+    },
+    port: {
+      doc: 'Consul port',
+      default: 8500,
+      env: 'CONSUL_PORT'
+    }
   }
 })
 

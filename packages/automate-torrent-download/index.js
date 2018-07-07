@@ -1,8 +1,8 @@
+const service = require('./start')
 const { serviceName } = require('./config')
-const server = require('./start')()
 
-server.start().then(() => console.log(`${serviceName} service connected`))
+service.start(() => console.log(`${serviceName} service connected at ${new Date()}`))
 
 process.on('SIGINT', () => {
-  server.stop()
+  service.stop()
 })

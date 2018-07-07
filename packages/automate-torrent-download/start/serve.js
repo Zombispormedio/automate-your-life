@@ -1,0 +1,10 @@
+const { Server } = require('../lib')
+const proto = require('../config/proto')
+const { packageName, serviceName, port } = require('../config')
+const procedures = require('./procedures')
+
+module.exports = Server.create()
+  .setProtobuffer(proto)
+  .setServiceConfiguration({ packageName, serviceName })
+  .setPort(port)
+  .addProcedures(procedures)

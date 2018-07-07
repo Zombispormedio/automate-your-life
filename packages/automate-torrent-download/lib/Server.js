@@ -1,0 +1,55 @@
+const grpc = require('grpc')
+const { mergeDeepRight } = require('ramda')
+
+module.exports = class Server {
+  static create () {
+    return new Server()
+  }
+  constructor () {
+    this.server = new grpc.Server()
+    this.procedures = {}
+  }
+  addProcedures (procedures) {
+    this.procedures = mergeDeepRight(this.procedures, procedures)
+    return this
+  }
+
+  setServiceConfiguration (serviceConfiguration) {
+    this.serviceConfiguration = serviceConfiguration
+    return this
+  }
+
+  setProtobuffer (protobuffer) {
+    this.protobuffer = protobuffer
+    return this
+  }
+
+  setPort (port) {
+    this.port = port
+    return this
+  }
+
+  async loadService () {
+    const { packageName, serviceName } = this.serviceConfiguration
+    const packageDefinition = await this.protobuffer.load()
+    const {
+      [packageName]: {
+        [serviceName]: {
+          service: serviceDefinition
+        }
+      }
+    } = grpc.loadPackageDefinition(packageDefinition)
+
+    this.server.addService(serviceDefinition, this.procedures)
+  }
+
+  async start () {
+    await this.loadService()
+    this.server.bind(`0.0.0.0:${this.port}`, grpc.ServerCredentials.createInsecure())
+    this.server.start()
+  }
+
+  stop () {
+    this.server.forceShutdown()
+  }
+}
