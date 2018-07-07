@@ -1,5 +1,8 @@
 const grpc = require('grpc')
-const { mergeDeepRight } = require('ramda')
+const protoLoader = require('@grpc/proto-loader')
+const {
+  mergeDeepRight
+} = require('ramda')
 
 module.exports = class Server {
   static create () {
@@ -19,8 +22,8 @@ module.exports = class Server {
     return this
   }
 
-  setProtobuffer (protobuffer) {
-    this.protobuffer = protobuffer
+  setProtobuffer (proto) {
+    this.proto = proto
     return this
   }
 
@@ -31,7 +34,11 @@ module.exports = class Server {
 
   async loadService () {
     const { packageName, serviceName } = this.serviceConfiguration
-    const packageDefinition = await this.protobuffer.load()
+    const packageDefinition = await protoLoader.load(this.proto.filename, {
+      includeDirs: [
+        this.proto.cwd
+      ]
+    })
     const {
       [packageName]: {
         [serviceName]: {

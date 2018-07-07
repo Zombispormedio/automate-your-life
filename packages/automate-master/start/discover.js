@@ -3,5 +3,5 @@ const { serviceName, consul, port } = require('../config')
 const { watcherCreators } = require('../config/intents')
 
 module.exports = ServiceDiscovery.create(consul)
-  .registerService({ serviceName, port })
+  .registerService({ serviceName: serviceName.toLowerCase(), port })
   .registerWatcherCreators(watcherCreators)

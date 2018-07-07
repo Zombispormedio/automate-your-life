@@ -1,10 +1,8 @@
 const { Server } = require('automate-shared')
-const proto = require('../config/proto')
-const { packageName, serviceName, port } = require('../config')
+const { packageName, serviceName, port, protoFilename, protoPath } = require('../config')
 const procedures = require('./procedures')
-
 module.exports = Server.create()
-  .setProtobuffer(proto)
+  .setProtobuffer({ filename: protoFilename, cwd: protoPath })
   .setServiceConfiguration({ packageName, serviceName })
   .setPort(port)
   .addProcedures(procedures)

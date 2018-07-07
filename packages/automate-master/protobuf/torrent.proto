@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package automate;
+
+service Torrent {
+  rpc attach(stream TorrentDownloadRequest) returns (TorrentDownloadResponse) {}
+}
+
+message TorrentDownloadRequest {
+  bytes torrentFile = 1;
+}
+
+message TorrentDownloadResponse {
+  bool accepted = 1;
+}

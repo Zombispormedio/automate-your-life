@@ -5,7 +5,6 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "@grpc/proto-loader": "^0.1.0",
     "automate-shared": "file:../automate-shared",
     "convict": "^4.3.0",
     "ramda": "^0.25.0",
