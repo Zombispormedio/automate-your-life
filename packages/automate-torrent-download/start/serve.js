@@ -1,4 +1,4 @@
-const { Server } = require('../lib')
+const { Server } = require('automate-shared')
 const proto = require('../config/proto')
 const { packageName, serviceName, port } = require('../config')
 const procedures = require('./procedures')

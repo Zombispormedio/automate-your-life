@@ -8,10 +8,9 @@
   },
   "dependencies": {
     "@grpc/proto-loader": "^0.1.0",
-    "consul": "^0.33.1",
     "convict": "^4.3.0",
     "drivelist": "^6.2.2",
-    "grpc": "^1.13.0-pre1",
+    "automate-shared": "file:../automate-shared",
     "pretty-bytes": "^5.1.0",
     "ramda": "^0.25.0",
     "uuid": "^3.3.2"
