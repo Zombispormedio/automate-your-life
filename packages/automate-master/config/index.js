@@ -18,6 +18,11 @@ const config = convict({
         doc: 'Main torrent proto file name',
         default: 'torrent.proto',
         env: 'TORRENT_PROTO_FILENAME'
+      },
+      serviceName: {
+        doc: 'Protobuffer service',
+        default: 'Torrent',
+        env: 'TORRENT_SERVICE_NAME'
       }
     }
   },
@@ -27,7 +32,7 @@ const config = convict({
     env: 'PACKAGE_NAME'
   },
   serviceName: {
-    doc: 'Protobuffer main service',
+    doc: 'service name',
     default: 'master',
     env: 'SERVICE_NAME'
   },
