@@ -24,7 +24,6 @@ const builder = Object.values(protobuffers).reduce((builder, {
 
 const load = async () => {
   services = await builder.build()
-  console.log(services)
 }
 
 module.exports = {

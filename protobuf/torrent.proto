@@ -3,7 +3,7 @@ syntax = "proto3";
 package automate;
 
 service Torrent {
-  // rpc attach(stream TorrentDownloadRequest) returns (TorrentDownloadResponse) {}
+  rpc attach(stream TorrentDownloadRequest) returns (TorrentDownloadResponse) {}
   rpc ping(PingRequest) returns (PingResult) {}
 }
 
@@ -20,5 +20,4 @@ message PingResult {
 }
 
 message PingRequest {
-	string message = 1;
 }
