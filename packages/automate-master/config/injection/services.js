@@ -27,9 +27,11 @@ const load = async () => {
   console.log(services)
 }
 
-module.exports = new Proxy(services, {
-  get (target, property) {
-    if (property === 'load') return load
-    return services[property]
-  }
-})
+module.exports = {
+  load,
+  services: new Proxy(services, {
+    get (target, property) {
+      return services[property]
+    }
+  })
+}

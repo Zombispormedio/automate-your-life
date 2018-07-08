@@ -4,6 +4,7 @@ package automate;
 
 service Torrent {
   rpc attach(stream TorrentDownloadRequest) returns (TorrentDownloadResponse) {}
+  rpc ping(PingRequest) returns (PingResult) {}
 }
 
 message TorrentDownloadRequest {
@@ -12,4 +13,12 @@ message TorrentDownloadRequest {
 
 message TorrentDownloadResponse {
   bool accepted = 1;
+}
+
+message PingResult {
+	bool success = 1;
+}
+
+message PingRequest {
+	string message = 1;
 }

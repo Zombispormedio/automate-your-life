@@ -1,5 +1,6 @@
-const { AttachProcedure } = require('../app/procedures')
+const { AttachProcedure, PingProcedure } = require('../app/procedures')
 
 module.exports = {
-  attach: AttachProcedure
+  attach: AttachProcedure,
+  ping: PingProcedure
 }

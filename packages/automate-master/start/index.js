@@ -1,12 +1,15 @@
 const serve = require('./serve')
 const discover = require('./discover')
-const services = require('../config/services')
 
 module.exports = {
   async start () {
-    await services.load()
+    await serve.start()
+    await discover.start()
+    discover.health()
+    discover.watch()
   },
   stop () {
-
+    serve.stop()
+    discover.stop()
   }
 }

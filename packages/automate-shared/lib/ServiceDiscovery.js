@@ -55,12 +55,13 @@ module.exports = class ServiceDiscovery {
   }
 
   async start () {
-    const { serviceName, serviceId, port } = this
+    const { serviceName, serviceId, port, address } = this
     console.log('Waiting Service Discovery....')
     await this.waitConsul()
     return this.client.agent.service.register({
       name: serviceName,
       id: serviceId,
+      address,
       port,
       check: {
         ttl: '10s',
@@ -105,7 +106,7 @@ module.exports = class ServiceDiscovery {
     this.watchers = []
   }
 
-  async stop () {
+  stop () {
     const { serviceName, serviceId } = this
     this.unregisterHealth()
     this.finishWatchers()
@@ -113,5 +114,14 @@ module.exports = class ServiceDiscovery {
       name: serviceName,
       id: serviceId
     })
+  }
+
+  async stopAll () {
+    const { serviceName } = this
+    const result = await this.client.agent.service.list({name: serviceName})
+    return Promise.all(Object.keys(result).map(id => this.client.agent.service.deregister({
+      name: serviceName,
+      id
+    })))
   }
 }

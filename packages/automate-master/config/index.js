@@ -4,7 +4,7 @@ const convict = require('convict')
 const config = convict({
   port: {
     doc: 'Server port',
-    default: 3040,
+    default: 3010,
     env: 'PORT'
   },
   protoPath: {

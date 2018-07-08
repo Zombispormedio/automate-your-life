@@ -6,7 +6,6 @@ const createWatcherCreator = key => {
   return ({ createWatcher }) => {
     const watcher = createWatcher(key)
     watcher.on('change', entries => {
-      console.log(entries)
       if (entries.length === 0) return
       const [ entry ] = entries
       config.set(`intents.${key}.url`, `http://${entry.Service.Address}:${entry.Service.Port}/`)

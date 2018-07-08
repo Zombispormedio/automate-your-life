@@ -7,11 +7,11 @@ module.exports = {
       script: './packages/automate-torrent-download/index.js',
       env: {
         watch: './packages/automate-torrent-download',
-        PORT: 3040
+        PORT: 3000
       },
       env_production: {
         watch: false,
-        PORT: 3040
+        PORT: 3000
       }
     },
     {
@@ -23,6 +23,18 @@ module.exports = {
       env_production: {
         NODE_ENV: 'production'
       }
-    }
+    },
+	{
+      name: 'automate-master',
+      script: './packages/automate-master/index.js',
+      env: {
+        watch: './packages/automate-master',
+        PORT: 3010
+      },
+      env_production: {
+        watch: false,
+        PORT: 3010
+      }
+    },
   ]
 }
