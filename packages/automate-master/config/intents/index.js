@@ -9,7 +9,7 @@ const createWatcherCreator = key => {
       if (entries.length === 0) return
       const [ entry ] = entries
       config.set(`intents.${key}.url`, `${entry.Service.Address}:${entry.Service.Port}`)
-      console.log(config.get('intents'))
+      console.log('Intents changed', JSON.stringify(config.get('intents')))
     })
   }
 }

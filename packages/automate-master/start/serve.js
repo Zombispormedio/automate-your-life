@@ -1,6 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const serializeError = require('serialize-error')
+const morgan = require('morgan')
 const { port } = require('../config')
 const injection = require('../config/injection')
 const { StatusRouter, TorrentRouter } = require('../app/routes')
@@ -15,6 +16,7 @@ const startServer = () => new Promise((resolve) => {
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
+app.use(morgan('tiny'))
 
 app.use(StatusRouter)
 
