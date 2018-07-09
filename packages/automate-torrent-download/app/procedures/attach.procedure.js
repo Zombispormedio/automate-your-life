@@ -1,8 +1,15 @@
 const fs = require('fs')
 
 module.exports = (call, callback) => {
-  fs.writeFile('result.torrent', call.request.chunks, (error) => {
-    if (error) return callback(null, { accepted: false })
+  let writer
+  call.on('data', function ({ chunks, meta: { filename } }) {
+    if (!writer) {
+      writer = fs.createWriteStream(`tmp/${filename}`)
+    }
+    writer.write(chunks)
+  })
+  call.on('end', function () {
+    writer.end()
     callback(null, { accepted: true })
   })
 }

@@ -3,12 +3,18 @@ syntax = "proto3";
 package automate;
 
 service Torrent {
-  rpc attach(TorrentDownloadRequest) returns (TorrentDownloadResponse) {}
+  rpc attach(stream TorrentDownloadRequest) returns (TorrentDownloadResponse) {}
   rpc ping(PingRequest) returns (PingResult) {}
 }
 
+message TorrentDownloadMeta {
+  string filename = 1;
+  string mimetype = 2;
+}
+
 message TorrentDownloadRequest {
-  bytes chunks = 1;
+  TorrentDownloadMeta meta = 1;
+  bytes chunks = 2;
 }
 
 message TorrentDownloadResponse {

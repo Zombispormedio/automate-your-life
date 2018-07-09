@@ -68,3 +68,5 @@ typings/
 
 packages/automate-master/data/*.torrent
 packages/**/protobuf/automate.proto
+
+tmp

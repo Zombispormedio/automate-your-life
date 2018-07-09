@@ -8,13 +8,22 @@ exports.ping = (req, res, next) => {
 
 exports.attach = (req, res, next) => {
   const {
-    fileStream
+    fileStream, filename, mimetype
   } = req.payload
   const torrentService = req.scope.resolve('torrentService')
+  const call = torrentService.attach((error, response) => {
+    if (error) return next(error)
+    res.json(response)
+  })
+
   fileStream.on('data', (chunks) => {
-    torrentService.attach({ chunks }, (err, result) => {
-      if (err) return next(err)
-      res.json(result)
+    call.write({
+      meta: { filename, mimetype },
+      chunks
     })
+  })
+
+  fileStream.on('end', () => {
+    call.end()
   })
 }

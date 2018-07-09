@@ -3,8 +3,9 @@
 	"scripts": {
 		"serve": "pm2 start ecosystem.config.js --env production",
 		"develop": "pm2 start ecosystem.config.js",
-		"update-protobuf": "node scripts/copy-protobuf",
-		"postinstall": "concurrently \"npm:update-protobuf\""
+		"protobuf": "node scripts/copy-protobuf",
+		"tmp": "node scripts/make-tmpdir",
+		"postinstall": "concurrently \"npm:protobuf\" \"npm:tmp\""
 	},
 	"workspaces": [
 		"packages/*"

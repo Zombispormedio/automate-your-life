@@ -24,6 +24,7 @@ router.post('/attach',
     req.pipe(busboy)
   },
   (req, res, next) => {
+    console.log('hello')
     const { error } = Joi.validate(
       req.payload,
       Joi.object({
