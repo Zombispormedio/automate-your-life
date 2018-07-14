@@ -11,8 +11,7 @@
     "drivelist": "^6.2.2",
     "automate-shared": "file:../automate-shared",
     "pretty-bytes": "^5.1.0",
-    "ramda": "^0.25.0",
-    "uuid": "^3.3.2"
+    "ramda": "^0.25.0"
   },
   "author": "",
   "license": "ISC"

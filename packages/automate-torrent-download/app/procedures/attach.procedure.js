@@ -1,4 +1,6 @@
 const fs = require('fs')
+const miss = require('mississippi')
+const parseTorrent = require('parse-torrent')
 
 module.exports = (call, callback) => {
   let writer
