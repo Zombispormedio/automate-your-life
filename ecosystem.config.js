@@ -24,7 +24,7 @@ module.exports = {
         NODE_ENV: 'production'
       }
     },
-	{
+    {
       name: 'automate-master',
       script: './packages/automate-master/index.js',
       env: {
@@ -35,6 +35,6 @@ module.exports = {
         watch: false,
         PORT: 3010
       }
-    },
+    }
   ]
 }
