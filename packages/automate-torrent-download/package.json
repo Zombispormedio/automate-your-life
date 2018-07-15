@@ -6,14 +6,15 @@
   "private": true,
   "scripts": {
     "start": "node .",
-    "develop": "nodemon --exec npm run start" 
+    "develop": "nodemon --exec npm run start"
   },
   "dependencies": {
+    "async": "^2.6.1",
     "automate-shared": "file:../automate-shared",
     "convict": "^4.3.0",
-    "mississippi": "^3.0.0",
     "parse-torrent": "^6.0.1",
     "ramda": "^0.25.0",
+    "through2": "^2.0.3",
     "webtorrent": "^0.100.0"
   }
 }

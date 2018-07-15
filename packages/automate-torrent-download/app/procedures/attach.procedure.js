@@ -1,17 +1,18 @@
-const fs = require('fs')
-const miss = require('mississippi')
-const parseTorrent = require('parse-torrent')
+const { sendToDownloadQueue } = require('../downloader')
 
 module.exports = (call, callback) => {
-  let writer
-  call.on('data', function ({ chunks, meta: { filename } }) {
-    if (!writer) {
-      writer = fs.createWriteStream(`tmp/${filename}`)
+  let buffer
+  call.on('data', ({ chunks }) => {
+    if (!buffer) {
+      buffer = chunks
+    } else {
+      buffer = Buffer.concat([buffer, chunks])
     }
-    writer.write(chunks)
   })
   call.on('end', function () {
-    writer.end()
-    callback(null, { accepted: true })
+    sendToDownloadQueue(buffer, (error, accepted) => {
+      if (error) return callback(error)
+      callback(null, { accepted })
+    })
   })
 }
