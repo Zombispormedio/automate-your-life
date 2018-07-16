@@ -4,7 +4,7 @@ const convict = require('convict')
 const config = convict({
   port: {
     doc: 'Server port',
-    default: 3000,
+    default: 3020,
     env: 'PORT'
   },
   protoPath: {
@@ -14,7 +14,7 @@ const config = convict({
   },
   protoFilename: {
     doc: 'Main proto file name',
-    default: 'torrent.proto',
+    default: 'storage.proto',
     env: 'PROTO_FILENAME'
   },
   packageName: {
@@ -24,7 +24,7 @@ const config = convict({
   },
   serviceName: {
     doc: 'Protobuffer main service',
-    default: 'Torrent',
+    default: 'Storage',
     env: 'SERVICE_NAME'
   },
   consul: {
@@ -40,12 +40,7 @@ const config = convict({
     }
   },
   intents: {
-    storage: {
-      url: ''
-    },
-    activity: {
-      url: ''
-    }
+
   }
 })
 

@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package automate;
+
+service Storage {
+  rpc search(StorageQuery) returns (StorageSearchResult) {}  
+}
+
+message StorageQuery {
+  int32 size = 1;
+  string name = 2;
+  int32 batch = 3;
+}
+
+message StorageSearchResult {
+    bool success = 1;
+    string id = 2;
+}

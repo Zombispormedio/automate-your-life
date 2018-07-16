@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package automate;
+
+service Activity {
+  rpc addActivity(ActivityMutation) returns (AddActivityResult) {}  
+}
+
+message ActivityMutation {
+  string actor = 1;
+  string verb = 2;
+  string object = 3;
+}
+
+message AddActivityResult {
+    bool success = 1;
+}

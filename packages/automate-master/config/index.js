@@ -33,7 +33,7 @@ const config = convict({
   },
   serviceName: {
     doc: 'service name',
-    default: 'master',
+    default: 'Master',
     env: 'SERVICE_NAME'
   },
   consul: {
@@ -50,7 +50,13 @@ const config = convict({
   },
   intents: {
     torrent: {
-      url: 'http://example.com'
+      url: ''
+    },
+    storage: {
+      url: ''
+    },
+    activity: {
+      url: ''
     }
   }
 })

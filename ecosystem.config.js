@@ -1,12 +1,20 @@
 require('dotenv').config()
 
+const randomPort = () => {
+  return Math.random() * (5000 - 3000) + 3000
+}
+
+const torrentPort = randomPort()
+const activityPort = randomPort()
+const storagePort = randomPort()
+
 module.exports = {
   apps: [
     {
-      name: 'automate-torrent-download',
-      script: './packages/automate-torrent-download/index.js',
+      name: 'automate-master',
+      script: './packages/automate-master/index.js',
       env: {
-        watch: './packages/automate-torrent-download',
+        watch: './packages/automate-master',
         PORT: 3000
       },
       env_production: {
@@ -25,15 +33,39 @@ module.exports = {
       }
     },
     {
-      name: 'automate-master',
-      script: './packages/automate-master/index.js',
+      name: 'automate-torrent-download',
+      script: './packages/automate-torrent-download/index.js',
       env: {
-        watch: './packages/automate-master',
-        PORT: 3010
+        watch: './packages/automate-torrent-download',
+        PORT: torrentPort
       },
       env_production: {
         watch: false,
-        PORT: 3010
+        PORT: torrentPort
+      }
+    },
+    {
+      name: 'automate-storage-search',
+      script: './packages/automate-storage-search/index.js',
+      env: {
+        watch: './packages/automate-storage-search',
+        PORT: storagePort
+      },
+      env_production: {
+        watch: false,
+        PORT: storagePort
+      }
+    },
+    {
+      name: 'automate-activity-feed',
+      script: './packages/automate-activity-feed/index.js',
+      env: {
+        watch: './packages/automate-activity-feed',
+        PORT: activityPort
+      },
+      env_production: {
+        watch: false,
+        PORT: activityPort
       }
     }
   ]
