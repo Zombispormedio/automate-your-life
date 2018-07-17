@@ -1,0 +1,16 @@
+{
+  "groups": {
+    "default": {
+      "packages": [
+        "package.json",
+        "packages/automate-activity-feed/package.json",
+        "packages/automate-data-subscriptions/package.json",
+        "packages/automate-master/package.json",
+        "packages/automate-service-discovery/package.json",
+        "packages/automate-shared/package.json",
+        "packages/automate-storage-search/package.json",
+        "packages/automate-torrent-download/package.json"
+      ]
+    }
+  }
+}
