@@ -12,8 +12,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@grpc/proto-loader": "^0.1.0",
-    "consul": "^0.33.1",
+    "@grpc/proto-loader": "^0.3.0",
+    "consul": "^0.34.0",
     "grpc": "^1.13.0",
 	"uuid": "^3.3.2",
     "wait-on": "^2.1.0"
